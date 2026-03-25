@@ -5,9 +5,15 @@ Practical examples for the [Kongen Labs](https://kongenlabs.life) API. Score pro
 ## Quick Start
 
 ```bash
-pip install kongen
+# Python
+pip install kongenlabs
 export KONGEN_API_KEY="kl_live_..."
 python quickstart.py
+
+# Node.js
+npm install @kongenlabs/sdk
+export KONGEN_API_KEY="kl_live_..."
+node quickstart.js
 ```
 
 Get your API key at [garden.kongenlabs.life/keys](https://garden.kongenlabs.life/keys).
@@ -16,7 +22,8 @@ Get your API key at [garden.kongenlabs.life/keys](https://garden.kongenlabs.life
 
 | File | Description | Tokens |
 |------|-------------|--------|
-| `quickstart.py` | Score a prompt, transfer scoring, batch scoring | ~171 KT |
+| `quickstart.py` | Score a prompt, transfer scoring, batch scoring (Python) | ~171 KT |
+| `quickstart.js` | Score a prompt, transfer scoring (Node.js) | ~51 KT |
 | `kongen_router.py` | Smart LLM router (Python) — routes to cheapest model per prompt | 1 KT/prompt |
 | `kongen_router.js` | Smart LLM router (JavaScript) — same logic, Node.js | 1 KT/prompt |
 
@@ -38,7 +45,7 @@ Prompt: "Prove P ≠ NP"
 ### Python
 
 ```bash
-pip install kongen anthropic  # or openai
+pip install kongenlabs anthropic  # or openai
 export KONGEN_API_KEY="kl_live_..."
 export ANTHROPIC_API_KEY="sk-ant-..."
 python kongen_router.py

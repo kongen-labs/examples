@@ -6,7 +6,7 @@ then routes to the cheapest model that can handle it. Works with both Anthropic
 (Claude) and OpenAI APIs.
 
 Usage:
-    pip install kongen anthropic openai
+    pip install kongenlabs anthropic openai
 
     export KONGEN_API_KEY="kl_live_..."
     export ANTHROPIC_API_KEY="sk-ant-..."   # for Claude

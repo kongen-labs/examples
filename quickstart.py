@@ -3,7 +3,7 @@ Kongen Labs — Quickstart (Python)
 
 Score a prompt, check your usage, and see routing recommendations.
 
-    pip install kongen
+    pip install kongenlabs
     export KONGEN_API_KEY="kl_live_..."
     python quickstart.py
 """
