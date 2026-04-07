@@ -13,10 +13,9 @@ from kongen import KongenClient
 client = KongenClient()  # reads KONGEN_API_KEY from env
 
 # --- 1. Score a prompt (1 KT) ---
-result = client.chiryu.score("Explain quantum entanglement in simple terms")
+result = client.logic.score("Explain quantum entanglement in simple terms")
 print(f"Regime:     {result.regime}")
 print(f"Boost:      {result.boost_factor}")
-print(f"A/I ratio:  {result.a_i_ratio:.3f}")
 print(f"Tokens:     {result.recommended_tokens}")
 print()
 
@@ -37,38 +36,38 @@ print()
 from kongen.types import StructuralSignature
 
 sig = StructuralSignature(
-    activator_strength=0.72,
-    inhibitor_strength=0.65,
-    boundary_strength=0.81,
-    scale_coherence=0.44,
-    field_magnitude=1.56,
-    a_i_ratio=1.11,
-    gradient_strength=0.39,
+    complexity=0.72,
+    constraint=0.65,
+    boundary=0.81,
+    coherence=0.44,
+    magnitude=1.56,
+    balance=1.11,
+    gradient=0.39,
 )
 transfer = client.transfer.score_signal(sig)
 print(f"Pattern:    {transfer.classification}")
 print(f"Confidence: {transfer.confidence:.3f}")
 print(f"Boost:      {transfer.boost_factor:+.3f}")
 for ev in transfer.evidence:
-    print(f"  {ev['source_domain']}: {ev['pattern_type']} (sim={ev['similarity']:.3f})")
+    print(f"  {ev['source_domain']}: sim={ev['similarity']:.3f}")
 print()
 
 # --- 4. Batch scoring (40 KT per item) ---
 signals = [
     StructuralSignature(
-        activator_strength=0.3, inhibitor_strength=0.8, boundary_strength=0.6,
-        scale_coherence=0.5, field_magnitude=1.1, a_i_ratio=0.38, gradient_strength=0.4,
+        complexity=0.3, constraint=0.8, boundary=0.6,
+        coherence=0.5, magnitude=1.1, balance=0.38, gradient=0.4,
     ),
     StructuralSignature(
-        activator_strength=0.9, inhibitor_strength=0.4, boundary_strength=0.3,
-        scale_coherence=0.7, field_magnitude=2.1, a_i_ratio=2.25, gradient_strength=0.6,
+        complexity=0.9, constraint=0.4, boundary=0.3,
+        coherence=0.7, magnitude=2.1, balance=2.25, gradient=0.6,
     ),
     StructuralSignature(
-        activator_strength=0.6, inhibitor_strength=0.6, boundary_strength=0.9,
-        scale_coherence=0.5, field_magnitude=1.5, a_i_ratio=1.0, gradient_strength=0.8,
+        complexity=0.6, constraint=0.6, boundary=0.9,
+        coherence=0.5, magnitude=1.5, balance=1.0, gradient=0.8,
     ),
 ]
-batch = client.transfer.score_batch(signals, source_domain="capital")
+batch = client.transfer.score_batch(signals)
 for i, r in enumerate(batch.results):
     print(f"Signal {i+1}: {r.classification} (boost={r.boost_factor:+.3f})")
 print()

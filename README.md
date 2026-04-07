@@ -26,6 +26,8 @@ Get your API key at [garden.kongenlabs.life/keys](https://garden.kongenlabs.life
 | `quickstart.js` | Score a prompt, transfer scoring (Node.js) | ~51 KT |
 | `kongen_router.py` | Smart LLM router (Python) — routes to cheapest model per prompt | 1 KT/prompt |
 | `kongen_router.js` | Smart LLM router (JavaScript) — same logic, Node.js | 1 KT/prompt |
+| `organism_examples.py` | Organism creation at all 3 levels (L0 raw, L1 schema, L2 collective) | varies |
+| `datacenter_ops.py` | Datacenter/SRE use cases — capacity planning, failure prediction, alert reduction | varies |
 
 ## Smart Router
 
@@ -59,6 +61,38 @@ export KONGEN_API_KEY="kl_live_..."
 export ANTHROPIC_API_KEY="sk-ant-..."
 node kongen_router.js
 ```
+
+## Datacenter / SRE
+
+Use pattern intelligence to make smarter infrastructure decisions. Instead of N threshold alerts that fire independently, observe the structural relationship between all your metrics at once.
+
+```bash
+pip install kongenlabs
+export KONGEN_API_KEY="kl_live_..."
+python datacenter_ops.py
+```
+
+**5 use cases in `datacenter_ops.py`:**
+
+| Use Case | What | Savings |
+|----------|------|---------|
+| Proactive Capacity | Distinguish healthy traffic spikes from pre-failure patterns | $2-15K/incident |
+| Drive Failure | Detect degradation 2-14 days before SMART thresholds | $50K+ data risk |
+| Scaling Confidence | Cross-domain evidence for scale-up/down decisions | $2-5K/day |
+| Alert Reduction | 1 pattern check replaces 5+ threshold alerts | 80-90% fewer pages |
+| Batch Fleet Scoring | Score entire fleet in 1 call at 20% discount | 20% API savings |
+
+## Organisms
+
+Create domain-specific pattern organisms at three levels of integration:
+
+```bash
+python organism_examples.py
+```
+
+- **Level 0 (Raw):** Push 7 floats, get classification — zero config
+- **Level 1 (Schema):** Named fields with semantic roles — auto-normalization
+- **Level 2 (Collective):** Outcomes + cross-domain analogy webhooks — full intelligence
 
 ## Token Costs
 

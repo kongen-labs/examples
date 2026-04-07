@@ -1,7 +1,7 @@
 /**
  * Kongen Smart Router — Route LLM calls through Kongen for 60% cost savings.
  *
- * Scores each prompt with Kongen's morphogenetic analysis to determine complexity,
+ * Scores each prompt with Kongen's pattern analysis to determine complexity,
  * then routes to the cheapest model that can handle it.
  *
  * Usage:

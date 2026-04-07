@@ -1,7 +1,7 @@
 """
 Kongen Smart Router — Route LLM calls through Kongen for 60% cost savings.
 
-Scores each prompt with Kongen's morphogenetic analysis to determine complexity,
+Scores each prompt with Kongen's pattern analysis to determine complexity,
 then routes to the cheapest model that can handle it. Works with both Anthropic
 (Claude) and OpenAI APIs.
 
@@ -124,7 +124,7 @@ class KongenRouter:
         Returns dict with: text, model, regime, cost, would_cost, saved
         """
         # 1. Score with Kongen (1 KT)
-        score = self.kongen.chiryu.score(prompt)
+        score = self.kongen.logic.score(prompt)
         regime = score.regime
         recommended = score.recommended_tokens
 
@@ -173,8 +173,7 @@ class KongenRouter:
             "text": text,
             "model": model.name,
             "regime": regime,
-            "boost_factor": score.boost_factor,
-            "a_i_ratio": score.a_i_ratio,
+            "confidence_adj": score.confidence_adj,
             "cost": actual_cost,
             "would_cost": would_cost,
             "saved": saved,
